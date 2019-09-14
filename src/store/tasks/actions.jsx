@@ -36,7 +36,7 @@ const postTasksRequested = () => {
   };
 };
 
-const postTasksLoaded = ({ data, message }) => {
+const postTasksLoaded = ({ data }) => {
   return {
     type: POST_TASKS_SUCCESS,
     payload: data
@@ -92,10 +92,10 @@ export const editTask = (tasksService) => (ind, text) => (dispatch, getState) =>
   return postTasks(dispatch, tasksService, newTasks);
 };
 
-export const doneTask = (tasksService) => (tasks, ind) => (dispatch, getState) => {
+export const doneTask = (tasksService) => (ind) => (dispatch, getState) => {
   dispatch(postTasksRequested());
   const tasks = getState().updateTasksList.originOrder.map(el => getState().updateTasksList.tasks[el]);
-  const newTasks = tasks.map((el) => ({...el, done: el.id === ind ? true : el.done}))
+  const newTasks = tasks.map((el) => ({...el, done: el.id === ind ? true : el.done}));
   return postTasks(dispatch, tasksService, newTasks);
 };
 

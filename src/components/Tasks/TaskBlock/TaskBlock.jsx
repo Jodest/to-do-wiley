@@ -43,7 +43,7 @@ class TaskBlock extends React.Component {
 
   deleteItem = (ind) => this.props.deleteTask(ind);
 
-  doneItem = (ind) => this.props.doneTask(ind,);
+  doneItem = (ind) => this.props.doneTask(ind);
 
   editItem = (ind, text) => this.props.editTask(ind, text);
 
